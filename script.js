@@ -20,6 +20,7 @@ function loadItems() {
 			for (i=(note_texts.indexOf(notetext)+1);i<Number(localStorage.getItem('count'));i++) {
 				localStorage.setItem("note"+(i-1), localStorage.getItem("note"+i))
 			}
+			localStorage.setItem("count", Number(localStorage.getItem("count"))-1)
 			continue
 		}
 		note = document.createElement('li')
