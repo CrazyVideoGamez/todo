@@ -14,20 +14,22 @@ function loadItems() {
 	
 	notes.innerHTML = ''
 	
-	for (notetext of note_texts) {
+	for (i=0; i < note_texts.length; i++) {
+		notetext = note_texts[i]
 		if (notetext == null) {
 			for (i=(note_texts.indexOf(notetext)+1);i<Number(localStorage.getItem('count'));i++) {
 				localStorage.setItem("note"+(i-1), localStorage.getItem("note"+i))
 			}
-			continue	
+			continue
 		}
 		note = document.createElement('li')
 		xbutton = document.createElement('button')
-		
+
 		note.innerText = notetext
 		xbutton.innerText = "X"
 		xbutton.classList.add('x')
 		xbutton.hidden = true
+		xbutton.onclick = removeItem(i)
 
 		note.appendChild(xbutton)
 		notes.appendChild(note)
@@ -58,7 +60,9 @@ function hidexbuttons() {
 }
 
 function removeItem(item) {
-	localStorage.removeItem("note" + (item-1))
+	return function() {
+		localStorage.removeItem("note"+item)
+	}
 }
 
 loadItems()
