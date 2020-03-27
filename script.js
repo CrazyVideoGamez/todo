@@ -12,8 +12,7 @@ function loadItems() {
 		note_texts.push(note)
 	}
 	
-	notes = document.createElement('ul')
-	notes.id = 'notes'
+	notes.innerHTML = ''
 	
 	for (notetext of note_texts) {
 		note = document.createElement('li')
