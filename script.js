@@ -5,13 +5,6 @@ if (!(localStorage.getItem('count'))) {
 	localStorage.setItem('count', '0')
 }
 
-function addItem() {
-	text = input.value
-
-	localStorage.setItem("note"+localStorage.getItem('count'), text)
-	localStorage.setItem('count', Number(localStorage.getItem('count'))+1)
-}
-
 function loadItems() {
 	let note_texts = []
 	for (i=0;i<Number(localStorage.getItem('count'));i++) {
@@ -24,4 +17,13 @@ function loadItems() {
 		note.innerText = notetext
 		notes.appendChild(note)
 	}
+}
+
+function addItem() {
+	text = input.value
+
+	localStorage.setItem("note"+localStorage.getItem('count'), text)
+	localStorage.setItem('count', Number(localStorage.getItem('count'))+1)
+	
+	loadItems()
 }
