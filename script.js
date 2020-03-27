@@ -31,6 +31,7 @@ function loadItems() {
 		xbutton.classList.add('x')
 		xbutton.hidden = true
 		xbutton.onclick = removeItem(i)
+		xbutton.style.marginLeft = "5px";
 
 		note.appendChild(xbutton)
 		notes.appendChild(note)
