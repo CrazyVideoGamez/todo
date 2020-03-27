@@ -15,7 +15,7 @@ function addItem() {
 function loadItems() {
 	let note_texts = []
 	for (i=0;i<Number(localStorage.getItem('count'));i++) {
-		let note = localStoraget.getItem('note'+i)
+		let note = localStorage.getItem('note'+i)
 		note_texts.push(note)
 	}
 	
