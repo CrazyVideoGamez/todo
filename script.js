@@ -65,3 +65,5 @@ function removeItem(item) {
 		localStorage.removeItem("note"+item)
 	}
 }
+
+loadItems()
