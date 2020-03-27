@@ -21,8 +21,6 @@ function loadItems() {
 	}
 }
 
-loadItems()
-
 function addItem() {
 	text = input.value
 
@@ -31,3 +29,5 @@ function addItem() {
 	
 	loadItems()
 }
+
+loadItems()
