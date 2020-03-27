@@ -16,7 +16,14 @@ function loadItems() {
 	
 	for (notetext of note_texts) {
 		note = document.createElement('li')
+		xbutton = document.createElement('button')
+		
 		note.innerText = notetext
+		xbutton.innerText = "X"
+		xbutton.classList.add('x')
+		xbutton.hidden = true
+
+		note.appendChild(xbutton)
 		notes.appendChild(note)
 	}
 }
@@ -28,6 +35,24 @@ function addItem() {
 	localStorage.setItem('count', Number(localStorage.getItem('count'))+1)
 	
 	loadItems()
+}
+
+function showxbuttons() {
+	xbuttons = document.getElementsByClassName('x')
+	for (button of xbuttons) {
+		button.hidden = false;
+	}
+}
+
+function hidexbuttons() {
+	xbuttons = document.getElementsByClassName('x')
+	for (button of xbuttons) {
+		button.hidden = true;
+	}
+}
+
+function removeItem(item) {
+	localStorage.removeItem("note" + item-1)
 }
 
 loadItems()
