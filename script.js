@@ -21,6 +21,8 @@ function loadItems() {
 	}
 }
 
+loadItems()
+
 function addItem() {
 	text = input.value
 
