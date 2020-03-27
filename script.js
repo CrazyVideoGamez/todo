@@ -52,7 +52,7 @@ function hidexbuttons() {
 }
 
 function removeItem(item) {
-	localStorage.removeItem("note" + item-1)
+	localStorage.removeItem("note" + (item-1))
 }
 
 loadItems()
