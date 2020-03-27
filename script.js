@@ -15,6 +15,9 @@ function loadItems() {
 	notes.innerHTML = ''
 	
 	for (notetext of note_texts) {
+		if (notetext == null) {
+			continue	
+		}
 		note = document.createElement('li')
 		xbutton = document.createElement('button')
 		
