@@ -1,13 +1,15 @@
 <html>
 	<head>
 		<title>Notes</title>
-		<script src="localforage.min.js"></script>
-		<script src="script.js"></script>
+		<script src="script.js" defer></script>
 	</head>
 	
 	<body>
 		<h1>Notes</h1>
-		<ul>
+		<ul id='notes'>
 		</ul>
+
+		<input id='note' placeholder="Note Text" type="text">
+		<button style="margin-top:10px">Add note</button>
 	</body>
 </html>

@@ -1,17 +1,27 @@
+notes = document.getElementById('notes')
+input = document.getElementById('note')
+
 if (!(localStorage.getItem('count'))) {
 	localStorage.setItem('count', '0')
 }
 
 function addItem() {
-	localStorage.setItem("note"+localStorage.getItem('count'))
+	text = input.value
+
+	localStorage.setItem("note"+localStorage.getItem('count'), text)
 	localStorage.setItem('count', Number(localStorage.getItem('count'))+1)
 }
 
 function loadItems() {
-	let notes = []
+	let note_texts = []
 	for (i=0;i<Number(localStorage.getItem('count'));i++) {
 		let note = localStoraget.getItem('note'+i)
-		notes.push(note)
+		note_texts.push(note)
 	}
-	console.log(notes)
+	
+	for (notetext of note_texts) {
+		note = document.createElement('li')
+		note.innerText = notetext
+		notes.appendChild(note)
+	}
 }
