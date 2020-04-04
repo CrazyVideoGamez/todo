@@ -58,6 +58,8 @@ function removeItem(item) {
 	// item parameter = index in list (starting from 0)
 	note_list = JSON.parse(localStorage.getItem('notes'))
 	note_list.splice(item,1)
+	note_list = JSON.stringify(note_list)
+	localStorage.setItem('notes', note_list)
 }
 
 loadItems()
