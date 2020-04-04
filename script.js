@@ -8,19 +8,10 @@ if (!(localStorage.getItem('notes'))) {
 function loadItems() {
 	let note_texts = JSON.parse(localStorage.getItem('notes'))
 	
+	notes.innerHTML = ''
+	
 	for (i=0; i < note_texts.length; i++) {
 		notetext = note_texts[i]
-		
-		already = false
-		notes.childNodes.forEach(function(child) {
-			if (notetext == child.innerText) {
-				already = true
-			}
-		})
-		
-		if (already) {
-			continue;
-		}
 		
 		note = document.createElement('li')
 		xbutton = document.createElement('button')
