@@ -11,6 +11,12 @@ function loadItems() {
 	for (i=0; i < note_texts.length; i++) {
 		notetext = note_texts[i]
 		
+		notes.childNodes.forEach(function(child) {
+			if (notetext == child.innerText) {
+				continue
+			}
+		})
+		
 		note = document.createElement('li')
 		xbutton = document.createElement('button')
 		
