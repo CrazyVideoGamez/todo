@@ -13,7 +13,7 @@ function loadItems() {
 		
 		note = document.createElement('li')
 		xbutton = document.createElement('button')
-
+		
 		note.innerText = notetext
 		xbutton.innerText = "X"
 		xbutton.classList.add('x')
