@@ -1,28 +1,14 @@
 notes = document.getElementById('notes')
 input = document.getElementById('note')
 
-if (!(localStorage.getItem('count'))) {
-	localStorage.setItem('count', '0')
+if (!(localStorage.getItem('notes'))) {
+	localStorage.setItem('notes', '[]')
 }
 
 function loadItems() {
-	let note_texts = []
-	for (i=0;i<Number(localStorage.getItem('count'));i++) {
-		let note = localStorage.getItem('note'+i)
-		note_texts.push(note)
-	}
-	
-	notes.innerHTML = ''
+	let note_texts = JSON.parse(localStorage.getItem('notes'))
 	
 	for (i=0; i < note_texts.length; i++) {
-		notetext = note_texts[i]
-		if (notetext == null) {
-			for (i=(note_texts.indexOf(notetext)+1);i<Number(localStorage.getItem('count'));i++) {
-				localStorage.setItem("note"+(i-1), localStorage.getItem("note"+i))
-			}
-			localStorage.setItem("count", (localStorage.length - 1))
-			continue
-		}
 		note = document.createElement('li')
 		xbutton = document.createElement('button')
 
@@ -39,12 +25,15 @@ function loadItems() {
 }
 
 function addItem() {
-	text = input.value
-
-	localStorage.setItem("note"+localStorage.getItem('count'), text)
-	localStorage.setItem('count', Number(localStorage.getItem('count'))+1)
+	text = input.value;
 	
-	loadItems()
+	note_list = JSON.parse(localStorage.getItem('notes'))
+	note_list.push(text)
+	note_list = JSON.stringify(note_list)
+	
+	localStorage.setItem('notes', note_list)
+	
+	loadItems() // Reload items
 }
 
 function showxbuttons() {
@@ -62,9 +51,9 @@ function hidexbuttons() {
 }
 
 function removeItem(item) {
-	return function() {
-		localStorage.removeItem("note"+item)
-	}
+	// item parameter = index in list (starting from 0)
+	note_list = JSON.parse(localStorage.getItem('notes'))
+	note_list.splice(item,1)
 }
 
 loadItems()
