@@ -6,10 +6,11 @@ if (!(localStorage.getItem('notes'))) {
 }
 
 function loadItems() {
-	notetext = input.value;
 	let note_texts = JSON.parse(localStorage.getItem('notes'))
 	
 	for (i=0; i < note_texts.length; i++) {
+		notetext = note_texts[0]
+		
 		note = document.createElement('li')
 		xbutton = document.createElement('button')
 
